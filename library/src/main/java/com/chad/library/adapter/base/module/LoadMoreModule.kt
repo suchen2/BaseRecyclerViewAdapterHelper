@@ -40,11 +40,11 @@ open class BaseLoadMoreModule(private val baseQuickAdapter: BaseQuickAdapter<*, 
     }
 
     private var mLoadMoreListener: OnLoadMoreListener? = null
+    /** 不满一屏时，是否可以继续加载的标记位 */
     private var mNextLoadEnable = true
 
     /** 设置加载更多布局 */
     var loadMoreView = defLoadMoreView
-
     /** 加载完成后是否允许点击 */
     var enableLoadMoreEndClick = false
     /** 是否打开自动加载更多 */
@@ -283,7 +283,6 @@ open class BaseLoadMoreModule(private val baseQuickAdapter: BaseQuickAdapter<*, 
      */
     override fun setOnLoadMoreListener(listener: OnLoadMoreListener?) {
         this.mLoadMoreListener = listener
-//        mNextLoadEnable = true
         isEnableLoadMore = true
     }
 
@@ -292,7 +291,6 @@ open class BaseLoadMoreModule(private val baseQuickAdapter: BaseQuickAdapter<*, 
      */
     internal fun reset() {
         if (mLoadMoreListener != null) {
-//            mNextLoadEnable = true
             isEnableLoadMore = true
             loadMoreView.loadMoreStatus = BaseLoadMoreView.Status.Complete
         }

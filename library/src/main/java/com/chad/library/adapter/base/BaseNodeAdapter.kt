@@ -216,9 +216,9 @@ abstract class BaseNodeAdapter(data: MutableList<BaseNode>? = null)
      * @param notify Boolean
      */
     private fun collapse(@IntRange(from = 0) position: Int,
-                 isChangeChildCollapse: Boolean = false,
-                 animate: Boolean = true,
-                 notify: Boolean = true) {
+                         isChangeChildCollapse: Boolean = false,
+                         animate: Boolean = true,
+                         notify: Boolean = true) {
         val node = this.data[position]
 
         if (node is BaseExpandNode && node.isExpanded) {
@@ -252,9 +252,9 @@ abstract class BaseNodeAdapter(data: MutableList<BaseNode>? = null)
      * @param notify Boolean
      */
     private fun expand(@IntRange(from = 0) position: Int,
-               isChangeChildExpand: Boolean = false,
-               animate: Boolean = true,
-               notify: Boolean = true) {
+                       isChangeChildExpand: Boolean = false,
+                       animate: Boolean = true,
+                       notify: Boolean = true) {
         val node = this.data[position]
 
         if (node is BaseExpandNode && !node.isExpanded) {

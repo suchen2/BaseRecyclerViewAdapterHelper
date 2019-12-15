@@ -29,6 +29,7 @@ open class BaseViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var view = views.get(viewId)
         if (view == null) {
             view = itemView.findViewById(viewId)
+            checkNotNull(view) { "No view found with id $viewId" }
             views.put(viewId, view)
         }
         return view as T
