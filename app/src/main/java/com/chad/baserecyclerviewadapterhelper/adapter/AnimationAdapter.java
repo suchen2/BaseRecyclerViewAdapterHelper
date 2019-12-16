@@ -4,7 +4,9 @@ import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
+
 import com.chad.baserecyclerviewadapterhelper.R;
 import com.chad.baserecyclerviewadapterhelper.data.DataServer;
 import com.chad.baserecyclerviewadapterhelper.entity.Status;
@@ -53,7 +55,7 @@ public class AnimationAdapter extends BaseQuickAdapter<Status, BaseViewHolder> {
 
     private ClickableSpan clickableSpan = new ClickableSpan() {
         @Override
-        public void onClick(View widget) {
+        public void onClick(@NonNull View widget) {
             Tips.show("事件触发了 landscapes and nedes");
         }
 

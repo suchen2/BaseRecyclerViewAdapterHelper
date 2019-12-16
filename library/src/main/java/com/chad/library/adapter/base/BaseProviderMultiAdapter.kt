@@ -16,7 +16,6 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder
  * ViewHolder 由 [BaseItemProvider] 实现，并且每个[BaseItemProvider]可以拥有自己类型的ViewHolder类型。
  *
  * @param T data 数据类型
- * @param VH : BaseViewHolder
  * @constructor
  */
 abstract class BaseProviderMultiAdapter<T>(data: MutableList<T>? = null) :

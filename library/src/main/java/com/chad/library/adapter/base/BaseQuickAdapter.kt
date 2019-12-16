@@ -86,7 +86,6 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
     /***************************** Public property settings *************************************/
     /**
      * data, Only allowed to get.
-     *
      * 数据, 只允许 get。
      */
     var data: MutableList<T> = data ?: arrayListOf()
@@ -107,8 +106,17 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
     var headerViewAsFlow: Boolean = false
     var footerViewAsFlow: Boolean = false
 
+    /**
+     * 是否打开动画
+     */
     var animationEnable: Boolean = false
+    /**
+     * 动画是否仅第一次执行
+     */
     var isAnimationFirstOnly = true
+    /**
+     * 设置自定义动画
+     */
     var adapterAnimation: BaseAnimation? = null
         set(value) {
             animationEnable = true
@@ -157,6 +165,9 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
         checkModule()
     }
 
+    /**
+     * 检查模块
+     */
     private fun checkModule() {
         if (this is LoadMoreModule) {
             loadMoreModule = this.addLoadMoreModule(this)
@@ -197,7 +208,8 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
      * （可选重写）当 item 的 ViewHolder创建完毕后，执行此方法。
      * 可在此对 ViewHolder 进行处理，例如进行 DataBinding 绑定 view
      *
-     * @param helper VH
+     * @param viewHolder VH
+     * @param viewType Int
      */
     protected open fun onItemViewHolderCreated(viewHolder: VH, viewType: Int) {}
 
@@ -936,7 +948,8 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
     }
 
     /**
-     * set anim to start when loading
+     * 开始执行动画方法
+     * 可以重写此方法，实行更多行为
      *
      * @param anim
      * @param index
@@ -970,8 +983,8 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
 
     /**
      * setting up a new instance to data;
-     *
      * 设置新的数据实例
+     *
      * @param data
      */
     open fun setNewData(data: MutableList<T>?) {
@@ -987,6 +1000,7 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
 
     /**
      * add one new data in to certain location
+     * 在指定位置添加一条新数据
      *
      * @param position
      */
@@ -998,6 +1012,7 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
 
     /**
      * add one new data
+     * 添加一条新数据
      */
     open fun addData(@NonNull data: T) {
         this.data.add(data)
@@ -1007,6 +1022,7 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
 
     /**
      * add new data in to certain location
+     * 在指定位置添加数据
      *
      * @param position the insert position
      * @param newData  the new data collection
@@ -1025,6 +1041,7 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
 
     /**
      * remove the item associated with the specified position of adapter
+     * 删除指定位置的数据
      *
      * @param position
      */
@@ -1041,6 +1058,7 @@ abstract class BaseQuickAdapter<T, VH : BaseViewHolder>
 
     /**
      * change data
+     * 改变数据
      */
     open fun setData(@IntRange(from = 0) index: Int, data: T) {
         this.data[index] = data

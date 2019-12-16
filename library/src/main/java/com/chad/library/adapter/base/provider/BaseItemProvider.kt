@@ -44,7 +44,7 @@ abstract class BaseItemProvider<T> {
      * （可选重写）创建 ViewHolder。
      * 默认实现返回[BaseViewHolder]，可重写返回自定义 ViewHolder
      *
-     * @param helper VH
+     * @param parent
      */
     open fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder {
         return BaseViewHolder(parent.getItemView(layoutId))
